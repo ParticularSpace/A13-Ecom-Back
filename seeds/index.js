@@ -8,7 +8,9 @@ const sequelize = require('../config/connection');
 const seedAll = async () => {
 
   try {
-    
+
+  await sequelize.query('SET FOREIGN_KEY_CHECKS = 0', { raw: true });
+
   await sequelize.sync({ force: true });
   console.log('\n----- DATABASE SYNCED -----\n');
 
