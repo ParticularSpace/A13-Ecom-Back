@@ -3,6 +3,8 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 // `/api/tags` endpoint
 
+
+// route to get all tags
 router.get('/', async (req, res) => {
   
   try {
@@ -13,7 +15,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-
+// route to get one tag by id
 router.get('/:id', async (req, res) => {
   
   try {
@@ -30,6 +32,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// route to create a new tag
 router.post('/', async (req, res) => {
   
   try {
@@ -45,6 +48,7 @@ router.post('/', async (req, res) => {
       }
 });
 
+// route to update a tag's name by its `id` value
 router.put('/:id', async (req, res) => {
   
   try {
@@ -66,6 +70,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+// route to delete on tag by its `id` value
 router.delete('/:id', async (req, res) => {
 
   try {

@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// get one category by id 
 router.get('/:id', async (req, res) => {
 
   try {
@@ -31,6 +32,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// create a new category
 router.post('/', async (req, res) => {
 
   try {
@@ -42,6 +44,7 @@ router.post('/', async (req, res) => {
 
 });
 
+// update a category by its `id` value
 router.put('/:id', async (req, res) => {
 
   try {
@@ -58,6 +61,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// delete a category by its `id` value
 router.delete('/:id', async (req, res) => {
 
   try {

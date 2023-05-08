@@ -38,6 +38,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// create new product
 router.post('/', async (req, res) => {
   
   Product.create(req.body)
@@ -62,7 +63,7 @@ router.post('/', async (req, res) => {
     });
 });
 
-// update product
+// update product by its `id` value
 router.put('/:id', (req, res) => {
 
   Product.update(req.body, {
@@ -85,12 +86,11 @@ router.put('/:id', (req, res) => {
             tag_id,
           };
         });
-      // figure out which ones to remove
-      const productTagsToRemove = productTags
+
+        const productTagsToRemove = productTags
         .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
         .map(({ id }) => id);
 
-      // run both actions
       return Promise.all([
         ProductTag.destroy({ where: { id: productTagsToRemove } }),
         ProductTag.bulkCreate(newProductTags),
@@ -103,6 +103,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// delete one product by its `id` value
 router.delete('/:id', async (req, res) => {
 
   try {
